@@ -1,3 +1,4 @@
+clc; clear all;
 syms s;
 apoly = expand((s+1)*(s-1)*(s+3)*(s-3)*(s+6)*(s-6));
 bpoly = expand((s+2)*(s-2)*(s+5)*(s-5));
@@ -9,3 +10,5 @@ f = RR_poly([1 20 154 576 1089 972 324]);
 [x,y,r,t] = RR_diophantine(a, b, f)
 
 check = a*x+b*y-f; % Very close to zero therefore, RR_diophantine works.
+
+check
