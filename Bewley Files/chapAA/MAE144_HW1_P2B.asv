@@ -3,9 +3,7 @@ clc; clear all;
 syms s;
 apoly = expand((s+1)*(s-1)*(s+3)*(s-3)*(s+6)*(s-6));
 bpoly = expand((s+2)*(s-2)*(s+5)*(s-5));
-
-%k=5 gives a proper D(s)
-fpoly = expand((s+1)^2*(s+3)^2*(s+6)^2*(s+20)^5);  
+fpoly = expand((s+1)^2*(s+3)^2*(s+6)^2*(s+20)^2);  
 
 coefficients_a = coeffs(apoly, 'All');
 coefficients_b=coeffs(bpoly, 'All');
