@@ -27,5 +27,5 @@ y_vec = eval(y.poly);
 
 Ds=RR_tf(y.poly,x.poly);
 
-check = a*x+b*y-f
+check = a*x+b*y-f;
 
