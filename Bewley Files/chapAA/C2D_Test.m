@@ -1,17 +1,10 @@
-omega_bar=0;
-h=0.01;
-omega_bar_z = exp(omega_bar*h);
+clear all;
+syms z1 p1;
+num_poly = RR_poly([1 z1]);
+den_poly = RR_poly([1 p1 0]);
+Ds = RR_tf(num_poly, den_poly);
+%Ds_mat = tf([1 z1], [1 p1 0]);
 
-Dz_zeros = exp(Ds.z*h);
-Dz_poles = exp(Ds.p*h);
-zeros_infinity = max(size(Dz_poles))-max(size(Dz_zeros))-1;
+Dz = KS_C2D_matched(Ds, 0.01)
 
-for i=1:zeros_infinity
-    Dz_zeros = [Dz_zeros -1];
-end
-
-Dz_test=RR_tf(Dz_zeros, Dz_poles, 1);
-
-K= RR_evaluate(Ds, omega_bar)/RR_evaluate(Dz_test, omega_bar_z);
-
-Dz = RR_tf(Dz_zeros, Dz_poles, K);
+%Dz_mat = c2d(Ds_mat, 0.01)
